@@ -1,0 +1,63 @@
+body {background-color: powderblue; margin: 0;font-family: Arial, Helvetica, sans-serif;} 
+header{text-align: center; background-color: #333; color: white;padding: 20px;}
+h1 {margin: 0; font-size: 32px; text-align: center; text-shadow: 2px 2px #000;}
+form { margin-top: 20px; position: relative;}
+
+
+/*Submit button*/
+button[type="submit"] { background-color: gray;color: white; border: none; padding: 10px 20px; cursor: pointer;}
+
+/*Post system*/
+.inp{text-align: center; max-width: 400px;margin-left: auto; margin-right: auto; margin-bottom: 200px; background-color: #333; padding-left: 30px; padding-right: 30px; padding-top: 20px; padding-bottom: 20px;border-radius: 10px; color: white;}
+label{display:block; margin-bottom: 5px; font-weight: bold;}
+input[type="text"] { padding: 10px; border: 2px solid #ccc; border-radius: 5px; width:80%;}
+
+
+.list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.item {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    padding: 10px;
+    font-size: 14px;
+}
+.avatar img {
+    border-radius: 50%;
+    display: block;
+    height: 40px;
+    margin-right: 10px;
+    width: 40px;
+}
+.content {
+    display: flex;
+    flex-direction: column;
+}
+.header {
+    align-items: center;
+    display: flex;
+    margin-bottom: 5px;
+}
+.name {
+    font-size: 14px;
+    font-weight: bold;
+    margin-right: 5px;
+}
+.handle {
+    color: #555;
+    font-size: 12px;
+}
+.timestamp {
+    color: #aaa;
+    font-size: 12px;
+    line-height: 1.5;
+}
+.body {
+    font-size: 16px;
+    line-height: 1.5;
+}

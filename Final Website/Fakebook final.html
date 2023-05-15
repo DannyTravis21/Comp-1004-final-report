@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <header>
+        <h1>Fakebook</h1>
+    </header>
+    <title>Fakebook</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<ul id="list">
+    <li class="item">
+        <div class="avatar">
+            <img src="https://placehold.it/50x50" alt="Avatar">
+        </div>
+        <div class="content">
+            <div class="header">
+                <span class="name">John Doe</span>
+                <span class="handle">@JohnDoe</span>
+                <span class="timestamp">20m</span>
+            </div>
+            <div class="body">
+                <p>This is the first post ever!!</p>
+            </div>
+        </div>
+    </li>
+</ul>
+
+<form class="inp" id="post-form">
+    <input type="text" id="tcontent" placeholder="Whats happening?">
+    <button type="submit">Post</button>
+</form>
+
+<script>
+    const form = document.getElementById("post-form");
+    const list = document.getElementById("list");
+    const input = document.getElementById("tcontent");
+    const swearwords = ["arse","ass", "bastard","bitch","bollocks","bullshit","cock","crap","cunt","dick","dyke","fuck","fucking","motherfucker","piss","prick","pussy","shit","slut","slag","twat","wanker"];
+
+    form.addEventListener('submit', (event) => {
+        event.preventDefault();
+
+        const postcontent = input.value;
+        const pcontent = postcontent.toLowerCase();
+
+
+        const contsword = swearwords.some((word) => pcontent.includes(word.toLowerCase()));
+
+        if (contsword) {
+            alert("Please refrain from using inappropriate language.");
+            return;
+        }
+        const newitem = document.createElement('li');
+        newitem.classList.add('item');
+        newitem.innerHTML = `
+    <div class="avatar">
+      <img src="https://placehold.it/50x50" alt="Avatar">
+    </div>
+    <div class="content">
+      <div class="header">
+        <span class="name">Your Name</span>
+        <span class="handle">@yourhandle</span>
+        <span class="timestamp">${getCurrentTimestamp()}</span>
+      </div>
+      <div class="body">
+        <p>${postcontent}</p>
+      </div>
+    </div>
+  `;
+  list.prepend(newitem);
+  input.value = '';
+ });
+  function getCurrentTimestamp() {
+  const date = new Date();
+  const hours = date.getHours();
+  const minutes = date.getMinutes();
+  const ampm = hours >= 12 ? 'pm' : 'am';
+  const formattedHours = hours % 12 === 0 ? 12 : hours % 12;
+  const formattedMinutes = minutes < 10 ? `0${minutes}` : minutes;
+  return `${formattedHours}:${formattedMinutes}${ampm}`;
+}
+</script>
+</html>
